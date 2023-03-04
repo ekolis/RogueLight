@@ -106,8 +106,15 @@ namespace RogueLight.UI
 
 			if (Keyboard.IsKeyPressed(Keys.OemQuestion) || Keyboard.IsKeyPressed(Keys.H) && !Hero.Instance.IsCasting)
 			{
-				// show help
-				Process.Start(new ProcessStartInfo { FileName = "Instructions.html", UseShellExecute = true });
+				try
+				{
+					// show help
+					Process.Start(new ProcessStartInfo { FileName = "Instructions.html", UseShellExecute = true });
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show($"Could not load help: {ex.Message}");
+				}
 			}
 
 			Invalidate();
