@@ -81,7 +81,10 @@ namespace RogueLight.UI
 					Tile tile = floor.Tiles[x, y];
 					if (tile.IsExplored)
 					{
-						// draw tile
+						// draw background
+						g.FillRectangle(new SolidBrush(tile.BackgroundColor), p.X, p.Y, glyphSize, glyphSize);
+						// draw tile contents
+						// TODO: draw in brightness-inverted color if background is too bright
 						g.DrawString(tile.Glyph.ToString(), font, new SolidBrush(tile.Color), p);
 					}
 					if (!tile.IsInFov)

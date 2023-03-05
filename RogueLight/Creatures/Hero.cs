@@ -320,5 +320,8 @@ namespace RogueLight.Creatures
 		/// Darkness essences give you a chance for critical hits from melee attacks and spells.
 		/// </summary>
 		public double EssenceBoostCriticalHits => GetAttunement<Darkness>() * 0.10;*/
+
+		public double Brightness
+			=> 10d;
 	}
 }

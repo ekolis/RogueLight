@@ -33,11 +33,12 @@ namespace RogueLight.UI
 			Hero hero = Hero.Instance;
 
 			// find out how big our glyphs are going to be
-			int glyphSize = Math.Min(Width / (floor.Width + 1), Height / (floor.Height + 1 + GraphicsExtensions.BarsRows));
+			int glyphSize = Math.Min(ClientSize.Width / (floor.Width + 1), ClientSize.Height / (floor.Height + 1 + GraphicsExtensions.BarsRows));
 
 			// get our graphics context etc
 			Graphics g = e.Graphics;
-			Font font = new Font("Consolas", glyphSize / g.ScaleFactor());
+			// HACK: I don't know why I have to square the scale factor...
+			Font font = new Font("Consolas", glyphSize / g.ScaleFactor() / g.ScaleFactor());
 
 			/*if (hero.IsCasting)
 			{
@@ -45,12 +46,12 @@ namespace RogueLight.UI
 			}
 			else
 			{*/
-				g.DrawMap(floor, font, glyphSize, fogBrush);
-				g.DrawLog(font, glyphSize, Height);
-				g.DrawBars(hero, font, glyphSize);
-				// TODO: render current status effects and their durations?
-				g.DrawDeath(Width, Height, font);
-				g.DrawVictory(Width, Height, font);
+			g.DrawMap(floor, font, glyphSize, fogBrush);
+			g.DrawLog(font, glyphSize, Height);
+			g.DrawBars(hero, font, glyphSize);
+			// TODO: render current status effects and their durations?
+			g.DrawDeath(Width, Height, font);
+			g.DrawVictory(Width, Height, font);
 			//}
 		}
 		private void GameForm_SizeChanged(object sender, EventArgs e)

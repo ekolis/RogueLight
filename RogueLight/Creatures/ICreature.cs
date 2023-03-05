@@ -107,6 +107,11 @@ namespace RogueLight.Creatures
 		/// Any status effects applied to this creature, and their remaining durations.
 		/// </summary>
 		IDictionary<StatusEffect, double> StatusEffects { get; }
+
+		/// <summary>
+		/// How much light does this creature emit?
+		/// </summary>
+		double Brightness { get; }
 	}
 
 	public static class CreatureExtensions

@@ -42,8 +42,7 @@ namespace RogueLight.UI
 			// 
 			// GameForm
 			// 
-			AutoScaleDimensions = new SizeF(12F, 30F);
-			AutoScaleMode = AutoScaleMode.Font;
+			AutoScaleMode = AutoScaleMode.None;
 			BackColor = Color.Black;
 			ClientSize = new Size(1256, 656);
 			DoubleBuffered = true;

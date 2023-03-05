@@ -126,5 +126,40 @@ namespace RogueLight.Mapping
 
 			return null;
 		}
+
+		/// <summary>
+		/// How bright is this tile, having been illuminated by creatures, etc?
+		/// </summary>
+		public double Brightness
+		{
+			get
+			{
+				var result = 0d;
+				foreach (var creature in Floor.Current.Creatures.Where(q => q.Brightness != 0))
+				{
+					if (creature.FieldOfView.IsInFov(X, Y))
+					{
+						// TODO: mirrors and stuff?
+						var creatureTile = Floor.Current.Tiles.Cast<Tile>().Single(q => q.Creature == creature);
+						var distance = 0;
+						distance += Math.Abs(creatureTile.X - X);
+						distance += Math.Abs(creatureTile.Y - Y);
+						distance += 1; // to avoid infinite brightness at a light source
+						result += creature.Brightness / (distance * distance);
+					}
+				}
+				return result;
+			}
+		}
+
+		public Color BackgroundColor
+		{
+			get
+			{
+				var rgb = (int)(Math.Atan(Brightness) / Math.PI * 255);
+				var color = Color.FromArgb(rgb, rgb, rgb);
+				return color;
+			}
+		}
 	}
 }
