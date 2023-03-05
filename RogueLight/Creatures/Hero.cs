@@ -37,7 +37,26 @@ namespace RogueLight.Creatures
 
 		public char Glyph { get; } = '@';
 
-		public Color Color => Color.White; //Elements.Select(q => q.Color).Average();
+		public Color Color
+		{
+			get
+			{
+				var damageColors = new List<Color>();
+				var dmgTenths = 10 - (int)(10d * Hitpoints / MaxHitpoints);
+				for (var i = 0; i < 10; i++)
+				{
+					if (i < dmgTenths)
+					{
+						damageColors.Add(Color.Red);
+					}
+					else
+					{
+						damageColors.Add(Color.White);
+					}
+				}
+				return damageColors.Average();
+			}
+		}
 
 		public FieldOfView? FieldOfView { get; set; }
 

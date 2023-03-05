@@ -30,7 +30,49 @@ namespace RogueLight.Creatures
 
 		public string Name => Type.HasFlag(MonsterFlags.Unique) ? Type.Name : $"the {Type.Name}";
 		public char Glyph => Type.Glyph;
-		public Color Color => Color.Red; //Elements.Select(q => q.Color).Average();
+
+		private Color DarkColor = Color.FromArgb(128, 0, 128);
+		private Color LightColor = Color.FromArgb(255, 255, 0);
+		private Color DamageColor = Color.FromArgb(128, 0, 0);
+		public Color Color
+		{
+			get
+			{
+				var darklightColors = new List<Color>();
+				if (Brightness >= 0)
+				{
+					darklightColors.Add(DarkColor);
+					for (var i = 0; i < Brightness; i++)
+					{
+						darklightColors.Add(LightColor);
+					}
+				}
+				else
+				{
+					darklightColors.Add(LightColor);
+					for (var i = 0; i > Brightness; i--)
+					{
+						darklightColors.Add(DarkColor);
+					}
+				}
+				var darklightColor = darklightColors.Average();
+				var damageColors = new List<Color>();
+				var dmgTenths = 10 - (int)(10d * Hitpoints / MaxHitpoints);
+				for (var i = 0; i < 10; i++)
+				{
+					if (i < dmgTenths)
+					{
+						damageColors.Add(DamageColor);
+					}
+					else
+					{
+						damageColors.Add(darklightColor);
+					}
+				}
+				return damageColors.Average();
+			}
+		}
+
 		public FieldOfView FieldOfView { get; set; }
 		public int Vision => Type.Vision;
 

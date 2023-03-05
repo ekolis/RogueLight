@@ -7,7 +7,8 @@
 		"Strength": 1,
 		"MaxHitpoints": 2,
 		"MaxMana": 3,
-		"Difficulty": 1
+		"Difficulty": 1,
+		"Brightness":  -1
 	},
 	{
 		"Name": "Xaos, the Lord of Darkness",
@@ -18,6 +19,7 @@
 		"MaxHitpoints": 25,
 		"MaxMana": 25,
 		"Difficulty": 10,
+		"Brightness":  -10,
 		"FlagNames": [ "unique", "finalboss" ]
 	}
 ]
