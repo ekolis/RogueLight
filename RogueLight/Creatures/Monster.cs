@@ -94,7 +94,13 @@ namespace RogueLight.Creatures
 			var fovData = FieldOfView.ComputeFov(newtile.X, newtile.Y, Vision, true);
 			var visibleTiles = new List<Tile>();
 			foreach (var cell in fovData)
-				visibleTiles.Add(floor.Tiles[cell.X, cell.Y]);
+			{
+				var tile = floor.Tiles[cell.X, cell.Y];
+				if (tile.Brightness * Vision >= 1d)
+				{
+					visibleTiles.Add(floor.Tiles[cell.X, cell.Y]);
+				}
+			}
 			VisibleTiles = visibleTiles;
 		}
 

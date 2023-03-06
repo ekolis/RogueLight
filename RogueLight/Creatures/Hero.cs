@@ -70,11 +70,17 @@ namespace RogueLight.Creatures
 				FieldOfView = new FieldOfView(floor);
 
 			var newtile = floor.Find(this);
-			var fovData = FieldOfView.ComputeFov(newtile.X, newtile.Y, Vision, true);
+			var fovData = FieldOfView.ComputeFov(newtile.X, newtile.Y, 999, true);
 			foreach (var tile in floor.Tiles)
 				floor.Tiles[tile.X, tile.Y] = floor.Tiles[tile.X, tile.Y].WithInvisible();
 			foreach (var fovCell in fovData)
-				floor.Tiles[fovCell.X, fovCell.Y] = floor.Tiles[fovCell.X, fovCell.Y].WithVisible();
+			{
+				var tile = floor.Tiles[fovCell.X, fovCell.Y];
+				if (tile.Brightness * Vision >= 1d)
+				{
+					floor.Tiles[fovCell.X, fovCell.Y] = tile.WithVisible();
+				}
+			}
 		}
 
 		public void ResetFov()
