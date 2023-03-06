@@ -8,7 +8,40 @@
 		"MaxHitpoints": 2,
 		"MaxMana": 3,
 		"Difficulty": 1,
-		"Brightness":  -1
+		"Brightness": -1
+	},
+	{
+		"Name": "shadow beast",
+		"Glyph": "B",
+		"Vision": 1,
+		"Speed": 1,
+		"Strength": 3,
+		"MaxHitpoints": 5,
+		"MaxMana": 1,
+		"Difficulty": 2,
+		"Brightness": -1
+	},
+	{
+		"Name": "void elemental",
+		"Glyph": "e",
+		"Vision": 5,
+		"Speed": 2,
+		"Strength": 2,
+		"MaxHitpoints": 5,
+		"MaxMana": 10,
+		"Difficulty": 2,
+		"Brightness": -3
+	},
+	{
+		"Name": "void pointer",
+		"Glyph": "*",
+		"Vision": 9,
+		"Speed": 1,
+		"Strength": 1,
+		"MaxHitpoints": 10,
+		"MaxMana": 20,
+		"Difficulty": 3,
+		"Brightness": -3
 	},
 	{
 		"Name": "Xaos, the Lord of Darkness",
@@ -19,7 +52,7 @@
 		"MaxHitpoints": 25,
 		"MaxMana": 25,
 		"Difficulty": 10,
-		"Brightness":  -10,
+		"Brightness": -10,
 		"FlagNames": [ "unique", "finalboss" ]
 	}
 ]
