@@ -54,6 +54,7 @@ namespace RogueLight.UI
 				{
 					h.Pulse++;
 					Logger.Log("You brighten your light.", Color.White);
+					h.UpdateFov();
 				}
 				else
 				{
