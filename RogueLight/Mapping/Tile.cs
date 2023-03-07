@@ -157,6 +157,10 @@ namespace RogueLight.Mapping
 			get
 			{
 				var rgb = (int)(Math.Atan(Brightness) / Math.PI * 255);
+				if (rgb < 0)
+				{
+					rgb = 0;
+				}	
 				var color = Color.FromArgb(rgb, rgb, rgb);
 				return color;
 			}

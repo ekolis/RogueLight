@@ -48,6 +48,18 @@ namespace RogueLight.UI
 				if (ActionDirection is not null)
 					LastActionDirection = ActionDirection;
 			//}
+			if (key == Keys.Space)
+			{
+				if (h.Pulse >= 0)
+				{
+					h.Pulse++;
+					Logger.Log("You brighten your light.", Color.White);
+				}
+				else
+				{
+					Logger.Log("Can't pulse now, still recovering.", Color.Gray);
+				}
+			}
 			return result;
 		}
 

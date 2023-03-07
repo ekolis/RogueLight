@@ -103,6 +103,21 @@ namespace RogueLight.Creatures
 			// HACK: why is this necessary?
 			Keyboard.Reset();
 
+			if (Pulse > 0)
+			{
+				Pulse *= -1;
+				Logger.Log("Your light is quenched for a little while.", Color.Gray);
+			}
+			else if (Pulse <= 0)
+			{
+				Pulse++;
+				if (Pulse > 0)
+				{
+					Pulse = 0;
+				}
+				Logger.Log("Your light is gradually restored.", Color.Gray);
+			}
+
 			bool success = false;
 
 			/*if (Spell is not null)
@@ -347,6 +362,11 @@ namespace RogueLight.Creatures
 		public double EssenceBoostCriticalHits => GetAttunement<Darkness>() * 0.10;*/
 
 		public double Brightness
-			=> 10d;
+			=> 10d * (1d + Pulse);
+
+		/// <summary>
+		/// Positive means a pulse is being emitted; negative means recovering from pulse.
+		/// </summary>
+		public double Pulse { get; set; } = 0;
 	}
 }
