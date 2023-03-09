@@ -22,6 +22,18 @@
 		"Brightness": -1
 	},
 	{
+		"Name": "Xyzzy, the Jester of Shadows",
+		"Glyph": "J",
+		"Vision": 5,
+		"Speed": 2,
+		"Strength": 1,
+		"MaxHitpoints": 5,
+		"MaxMana": 10,
+		"Difficulty": 3,
+		"Brightness": -5,
+		"FlagNames": [ "unique" ]
+	},
+	{
 		"Name": "void elemental",
 		"Glyph": "e",
 		"Vision": 5,
@@ -40,19 +52,65 @@
 		"Strength": 1,
 		"MaxHitpoints": 10,
 		"MaxMana": 20,
-		"Difficulty": 3,
+		"Difficulty": 4,
 		"Brightness": -3
+	},
+	{
+		"Name": "Kazammle, the Mage of the Void",
+		"Glyph": "*",
+		"Vision": 2,
+		"Speed": 1,
+		"Strength": 5,
+		"MaxHitpoints": 20,
+		"MaxMana": 30,
+		"Difficulty": 6,
+		"Brightness": -8,
+		"FlagNames": [ "unique" ]
+	},
+	{
+		"Name": "nullifier golem",
+		"Glyph": "G",
+		"Vision": 3,
+		"Speed": 1,
+		"Strength": 10,
+		"MaxHitpoints": 30,
+		"MaxMana": 5,
+		"Difficulty": 3,
+		"Brightness": -8
+	},
+	{
+		"Name": "nullspace vortex",
+		"Glyph": "v",
+		"Vision": 2,
+		"Speed": 5,
+		"Strength": 7,
+		"MaxHitpoints": 20,
+		"MaxMana": 20,
+		"Difficulty": 6,
+		"Brightness": -10
+	},
+	{
+		"Name": "MISSING_MONSTER_NUMBER_0xDEADCAFE",
+		"Glyph": "#",
+		"Vision": 10,
+		"Speed": 1,
+		"Strength": 12,
+		"MaxHitpoints": 12,
+		"MaxMana": 20,
+		"Difficulty": 9,
+		"Brightness": -15,
+		"FlagNames": [ "unique" ]
 	},
 	{
 		"Name": "Xaos, the Lord of Darkness",
 		"Glyph": "X",
-		"Vision": 8,
+		"Vision": 12,
 		"Speed": 2,
-		"Strength": 8,
-		"MaxHitpoints": 25,
+		"Strength": 16,
+		"MaxHitpoints": 50,
 		"MaxMana": 25,
 		"Difficulty": 10,
-		"Brightness": -10,
+		"Brightness": -25,
 		"FlagNames": [ "unique", "finalboss" ]
 	}
 ]
