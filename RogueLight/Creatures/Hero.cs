@@ -105,8 +105,16 @@ namespace RogueLight.Creatures
 
 			if (Pulse > 0)
 			{
-				Pulse *= -1;
-				Logger.Log("Your light is quenched for a little while.", Color.Gray);
+				if (PulseTimeLeft > 0)
+				{
+					PulseTimeLeft--;
+				}
+				else
+				{
+					PulseTimeLeft = 0;
+					Pulse *= -1;
+					Logger.Log("Your light is quenched for a little while.", Color.Gray);
+				}
 			}
 			else if (Pulse < 0)
 			{
@@ -386,5 +394,7 @@ namespace RogueLight.Creatures
 		/// Positive means a pulse is being emitted; negative means recovering from pulse.
 		/// </summary>
 		public double Pulse { get; set; } = 0;
+
+		public double PulseTimeLeft { get; set; } = 0;
 	}
 }
