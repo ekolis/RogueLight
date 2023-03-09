@@ -207,7 +207,7 @@ namespace RogueLight.Creatures
 
 		public int Strength { get; } = 1;
 
-		public int MaxHitpoints => 10;
+		public int MaxHitpoints => 100;
 
 		public int Hitpoints { get; set; }
 
