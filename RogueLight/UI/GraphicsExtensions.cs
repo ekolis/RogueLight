@@ -83,9 +83,30 @@ namespace RogueLight.UI
 					{
 						// draw background
 						g.FillRectangle(new SolidBrush(tile.BackgroundColor), p.X, p.Y, glyphSize, glyphSize);
+
 						// draw tile contents
 						// TODO: draw in brightness-inverted color if background is too bright
 						g.DrawString(tile.Glyph.ToString(), font, new SolidBrush(tile.Color), p);
+
+						// draw highlight for player and enemies
+						if (tile.IsInFov)
+						{
+							if (tile.Creature is Hero)
+							{
+								g.DrawRectangle(Pens.White, p.X, p.Y, glyphSize - 1, glyphSize - 1);
+							}
+							else if (tile.Creature is Monster m)
+							{
+								if (m.HasFlag(MonsterFlags.Unique))
+								{
+									g.DrawRectangle(Pens.Pink, p.X, p.Y, glyphSize - 1, glyphSize - 1);
+								}
+								else
+								{
+									g.DrawRectangle(Pens.Red, p.X, p.Y, glyphSize - 1, glyphSize - 1);
+								}
+							}
+						}
 					}
 					if (!tile.IsInFov)
 					{
