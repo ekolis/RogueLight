@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace RogueLight.Creatures
 {
-	public record MonsterType(string Name, char Glyph, IEnumerable<string> ElementNames, int Vision, double Speed, int Strength, int MaxHitpoints, int MaxMana, int Difficulty, IEnumerable<string> FlagNames)
+	public record MonsterType(string Name, char Glyph, IEnumerable<string> ElementNames, int Vision, double Speed, int Strength, int MaxHitpoints, int MaxMana, int Difficulty, IEnumerable<string> FlagNames, double Brightness)
 	{
 		public static IEnumerable<MonsterType> All { get; }
 			= JsonSerializer.Deserialize<IEnumerable<MonsterType>>(File.ReadAllText("Data/MonsterTypes.json")) ?? Enumerable.Empty<MonsterType>();

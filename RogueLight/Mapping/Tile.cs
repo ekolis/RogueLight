@@ -137,6 +137,11 @@ namespace RogueLight.Mapping
 				var result = 0d;
 				foreach (var creature in Floor.Current.Creatures.Where(q => q.Brightness != 0))
 				{
+					if (creature.FieldOfView is null)
+					{
+						creature.UpdateFov();
+					}
+
 					if (creature.FieldOfView.IsInFov(X, Y))
 					{
 						// TODO: mirrors and stuff?

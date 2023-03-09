@@ -205,6 +205,7 @@ namespace RogueLight.Creatures
 
 		public int Difficulty => Type.Difficulty;
 
-		public double Brightness { get; set; }
+		public double Brightness
+			=> Type.Brightness;
 	}
 }

@@ -163,7 +163,25 @@ namespace RogueLight.Creatures
 				// update the hero's field of view
 				UpdateFov();
 
-				// TODO: maybe log any spotted monsters so the player knows what they are? maybe even the direction in which they are spottted?
+				// strong light damages enemies
+				var whereami = Floor.Current.Tiles.Cast<Tile>().SingleOrDefault(q => q.Creature == this);
+				if (whereami != null)
+				{
+					var fovData = FieldOfView.ComputeFov(whereami.X, whereami.Y, 999, true);
+					foreach (var cell in fovData)
+					{
+						var tile = Floor.Current.Tiles[cell.X, cell.Y];
+						if (tile.Brightness > 0 && tile.Creature is Monster m && m.Brightness < 0)
+						{
+							var dmg = (int)(tile.Brightness / -tile.Creature.Brightness);
+							if (dmg > 0)
+							{
+								this.InflictDamage(tile.Creature, dmg);
+								Logger.LogAttack(this, m, dmg, false);
+							}
+						}
+					}
+				}
 
 				// spend time
 				return 1.0 / Speed;
