@@ -108,7 +108,7 @@ namespace RogueLight.Creatures
 				Pulse *= -1;
 				Logger.Log("Your light is quenched for a little while.", Color.Gray);
 			}
-			else if (Pulse <= 0)
+			else if (Pulse < 0)
 			{
 				Pulse++;
 				if (Pulse > 0)
